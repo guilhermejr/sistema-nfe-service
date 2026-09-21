@@ -57,6 +57,18 @@ The pipes **must** be sent as `%7C` — Tomcat rejects raw `|` in a path. Feign 
 
 `application.yml` only bootstraps `spring.config.import`, which pulls from Vault (`secret/application`) and the config server. Both must be reachable or the service will not start.
 
+A service also needs **its own secret** at `secret/<service-name>`, holding at minimum `eurekaHostname`. That key is *not* in the shared `secret/application` — every service carries its own, and the per-service yml in the config repo reads it with no default.
+
+A brand-new service therefore fails on first run even with a perfectly good config-server file, and the error names Eureka rather than Vault:
+
+```
+Vault location [secret/nfe-service] not resolvable: Not found
+...
+Could not resolve placeholder 'eurekaHostname' in value "${eurekaHostname}"
+```
+
+Create it in **both** the dev and the prod Vault, mirroring a sibling (`vault read secret/notificacao-service` — the backend is KV v1, since `spring.cloud.vault.generic` is enabled).
+
 `VAULT_TOKEN` is required and **has no default**. Without it Spring sends the literal string `${VAULT_TOKEN}` to Vault, gets a 403 that Spring Cloud Vault swallows (`fail-fast` is off), and startup fails much later with a misleading `${someProperty} is malformed`.
 
 To run locally without Vault and the config server, replace the configuration entirely rather than trying to override `spring.config.import` — a command-line `--spring.config.import=` does not win:
