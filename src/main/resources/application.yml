@@ -1,6 +1,6 @@
 spring:
   application:
-    name: nfe-ba-service
+    name: nfe-service
   config:
     import: 'vault://, configserver:http://config-server:8888'
   cloud:
@@ -12,7 +12,7 @@ spring:
       token: ${VAULT_TOKEN}
       generic:
         enabled: true
-        application-name: nfe-ba-service
+        application-name: nfe-service
     config:
       username: ${CONFIG_SERVER_USER:config}
       password: ${CONFIG_SERVER_PASS:o5qByEjgPOwh3yXOqf}

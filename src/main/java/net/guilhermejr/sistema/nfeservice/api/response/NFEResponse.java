@@ -1,4 +1,4 @@
-package net.guilhermejr.sistema.nfebaservice.api.response;
+package net.guilhermejr.sistema.nfeservice.api.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;

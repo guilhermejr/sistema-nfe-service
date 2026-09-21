@@ -1,11 +1,11 @@
-package net.guilhermejr.sistema.nfebaservice.service;
+package net.guilhermejr.sistema.nfeservice.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import net.guilhermejr.sistema.nfebaservice.api.response.NFEResponse;
-import net.guilhermejr.sistema.nfebaservice.api.response.ProdutoResponse;
-import net.guilhermejr.sistema.nfebaservice.component.NavegadorComponent;
-import net.guilhermejr.sistema.nfebaservice.exception.ExceptionDefault;
+import net.guilhermejr.sistema.nfeservice.api.response.NFEResponse;
+import net.guilhermejr.sistema.nfeservice.api.response.ProdutoResponse;
+import net.guilhermejr.sistema.nfeservice.component.NavegadorComponent;
+import net.guilhermejr.sistema.nfeservice.exception.ExceptionDefault;
 import org.jsoup.Connection;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -24,7 +24,7 @@ public class NFEService {
 
     private final NavegadorComponent navegador;
 
-    @Value("${sistema.nfe-ba.url:http://nfe.sefaz.ba.gov.br/servicos/nfce/qrcode.aspx?p=}")
+    @Value("${sistema.nfe.url:http://nfe.sefaz.ba.gov.br/servicos/nfce/qrcode.aspx?p=}")
     private String urlBase;
 
     // --- Buscar -------------------------------------------------------------

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>net.guilhermejr.sistema</groupId>
-	<artifactId>nfe-ba-service</artifactId>
+	<artifactId>nfe-service</artifactId>
 	<version>0.0.1</version>
-	<name>nfe-ba-service</name>
+	<name>nfe-service</name>
 	<description>Microserviço de busca de NFE da Secretaria da Fazenda da Bahia</description>
 	<properties>
 		<java.version>21</java.version>

@@ -1,4 +1,4 @@
-package net.guilhermejr.sistema.nfebaservice.exception;
+package net.guilhermejr.sistema.nfeservice.exception;
 
 public class ExceptionDefault extends RuntimeException {
 

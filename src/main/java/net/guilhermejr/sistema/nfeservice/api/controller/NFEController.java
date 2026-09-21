@@ -1,9 +1,9 @@
-package net.guilhermejr.sistema.nfebaservice.api.controller;
+package net.guilhermejr.sistema.nfeservice.api.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import net.guilhermejr.sistema.nfebaservice.api.response.NFEResponse;
-import net.guilhermejr.sistema.nfebaservice.service.NFEService;
+import net.guilhermejr.sistema.nfeservice.api.response.NFEResponse;
+import net.guilhermejr.sistema.nfeservice.service.NFEService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

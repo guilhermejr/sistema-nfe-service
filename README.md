@@ -1,4 +1,4 @@
-# nfe-ba-service
+# nfe-service
 
 Microsserviço que **lê uma NFC-e no site da Secretaria da Fazenda da Bahia** e devolve os dados em JSON. Consumido pelo `supermercado-service`, que a partir daí monta a compra.
 
@@ -15,7 +15,7 @@ Substitui o serviço homônimo em PHP/Laravel, que fazia o mesmo apoiado na bibl
 
 | Porta | Context path |
 |---|---|
-| 9011 | `/nfe-ba-service/` |
+| 9011 | `/nfe-service/` |
 
 ## Endpoints
 
@@ -72,9 +72,9 @@ Como os demais serviços, não guarda configuração própria: busca tudo no arr
 
 | Propriedade | Padrão |
 |---|---|
-| `sistema.nfe-ba.url` | `http://nfe.sefaz.ba.gov.br/servicos/nfce/qrcode.aspx?p=` |
-| `sistema.nfe-ba.timeout` | `30000` |
-| `sistema.nfe-ba.userAgent` | um Chrome recente |
+| `sistema.nfe.url` | `http://nfe.sefaz.ba.gov.br/servicos/nfce/qrcode.aspx?p=` |
+| `sistema.nfe.timeout` | `30000` |
+| `sistema.nfe.userAgent` | um Chrome recente |
 
 ## Contato
 

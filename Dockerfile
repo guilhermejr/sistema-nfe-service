@@ -9,9 +9,9 @@ ENV VAULT_HOST=${VAULT_HOST}
 ENV VAULT_TOKEN=${VAULT_TOKEN}
 ENV CONFIG_SERVER_USER=${CONFIG_SERVER_USER}
 ENV CONFIG_SERVER_PASS=${CONFIG_SERVER_PASS}
-COPY sistema-nfe-ba-service.jar sistema-nfe-ba-service.jar
+COPY sistema-nfe-service.jar sistema-nfe-service.jar
 HEALTHCHECK --interval=30s --timeout=5s --start-period=90s --retries=3 \
-  CMD curl -fsS http://localhost:9011/nfe-ba-service/actuator/health | grep -q '"status":"UP"' || exit 1
+  CMD curl -fsS http://localhost:9011/nfe-service/actuator/health | grep -q '"status":"UP"' || exit 1
 
-ENTRYPOINT ["java","-Dspring.profiles.active=prod","-jar","/sistema-nfe-ba-service.jar"]
+ENTRYPOINT ["java","-Dspring.profiles.active=prod","-jar","/sistema-nfe-service.jar"]
 EXPOSE 9011

@@ -1,7 +1,7 @@
-package net.guilhermejr.sistema.nfebaservice.component;
+package net.guilhermejr.sistema.nfeservice.component;
 
 import lombok.extern.log4j.Log4j2;
-import net.guilhermejr.sistema.nfebaservice.exception.ExceptionDefault;
+import net.guilhermejr.sistema.nfeservice.exception.ExceptionDefault;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,10 +21,10 @@ import java.io.IOException;
 @Component
 public class NavegadorComponent {
 
-    @Value("${sistema.nfe-ba.userAgent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36}")
+    @Value("${sistema.nfe.userAgent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0 Safari/537.36}")
     private String userAgent;
 
-    @Value("${sistema.nfe-ba.timeout:30000}")
+    @Value("${sistema.nfe.timeout:30000}")
     private Integer timeout;
 
     // --- Abre uma sessão, que carrega o cookie entre as requisições ----------

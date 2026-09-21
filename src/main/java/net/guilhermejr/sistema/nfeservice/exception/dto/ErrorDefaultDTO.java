@@ -1,4 +1,4 @@
-package net.guilhermejr.sistema.nfebaservice.exception.dto;
+package net.guilhermejr.sistema.nfeservice.exception.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

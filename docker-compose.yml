@@ -1,7 +1,7 @@
 services:
-  nfe-ba-service:
-    image: guilhermejr/sistema-nfe-ba-service
-    container_name: nfe-ba-service
+  nfe-service:
+    image: guilhermejr/sistema-nfe-service
+    container_name: nfe-service
     restart: always
     ports:
       - "9011:9011"

@@ -9,7 +9,7 @@ Reads an NFC-e from the Bahia tax authority's website and returns it as JSON. Co
 | | |
 |---|---|
 | Port | `9011` |
-| Context path | `/nfe-ba-service` |
+| Context path | `/nfe-service` |
 | Role required | none |
 
 Part of a personal microservices system; sibling repos live at `../sistema-*`.
@@ -48,7 +48,7 @@ A nota SEFAZ does not recognize is **not** an error: the page carries `#lblInfor
 There is no fixture: the only real check is against the live site. A nota that still resolves:
 
 ```bash
-curl "http://localhost:9011/nfe-ba-service/29200835133777000109650010000001231796633581%7C2%7C1%7C1%7CB75D96ACC1EA7E3AAF163C0C0F01D547DCACF815"
+curl "http://localhost:9011/nfe-service/29200835133777000109650010000001231796633581%7C2%7C1%7C1%7CB75D96ACC1EA7E3AAF163C0C0F01D547DCACF815"
 ```
 
 The pipes **must** be sent as `%7C` — Tomcat rejects raw `|` in a path. Feign encodes them on its own, so `supermercado-service` needs no special handling.
@@ -82,4 +82,6 @@ There is no ModelMapper here — the responses are built directly — so the JDK
 
 `git push origin main` **is** the deploy: a `post-receive` hook on the VPS checks out, runs `mvn clean package` inside a throwaway `maven:3.9-amazoncorretto-21` container, builds the image and restarts it via docker compose.
 
-This repository is new — the hook, the bare repo and the compose entry on the VPS have to exist before the first push does anything. The PHP service still occupies the `sistema-nfe-ba-service` repo and the `nfe-ba-service` container name, so **both cannot run at once**: retiring the PHP one is part of cutting over, along with pointing `NFEBAHost` in Vault at `http://nfe-ba-service:9011/nfe-ba-service`.
+This repository is new — the hook, the bare repo and the compose entry on the VPS have to exist before the first push does anything.
+
+The PHP service it replaces keeps its own names (`sistema-nfe-ba-service`, container `nfe-ba-service`, port 8000), so the two **can** run side by side during the cutover. Switching over is one Vault change: point `NFEBAHost` at `http://nfe-service:9011/nfe-service` — note the context path, which the PHP service did not have.

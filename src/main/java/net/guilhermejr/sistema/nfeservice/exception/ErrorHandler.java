@@ -1,8 +1,8 @@
-package net.guilhermejr.sistema.nfebaservice.exception;
+package net.guilhermejr.sistema.nfeservice.exception;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import net.guilhermejr.sistema.nfebaservice.exception.dto.ErrorDefaultDTO;
+import net.guilhermejr.sistema.nfeservice.exception.dto.ErrorDefaultDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
