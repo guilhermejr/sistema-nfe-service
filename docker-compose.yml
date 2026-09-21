@@ -1,0 +1,12 @@
+services:
+  nfe-ba-service:
+    image: guilhermejr/sistema-nfe-ba-service
+    container_name: nfe-ba-service
+    restart: always
+    ports:
+      - "9011:9011"
+
+networks:
+  default:
+    external: true
+    name: rede
