@@ -4,7 +4,7 @@ services:
     container_name: nfe-service
     restart: always
     ports:
-      - "9011:9011"
+      - "127.0.0.1:9011:9011"
 
 networks:
   default:
